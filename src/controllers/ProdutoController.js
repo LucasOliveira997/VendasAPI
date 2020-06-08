@@ -26,13 +26,12 @@ module.exports = {
     async update(req, res) {
 
         const { produto_id } = req.params;
-        const { nome, descricao, tamanho, preco } = req.body;
+        const { nome, descricao, preco } = req.body;
 
         const produto = await produto.findByIdAndUpdate(produto_id, {
 
             nome,
             descricao,
-            tamanho,
             preco
 
         }, { new: true });
@@ -43,12 +42,11 @@ module.exports = {
 
     async store(req, res){
 
-        const { nome, descricao, tamanho, preco } = req.body;
+        const { nome, descricao, preco } = req.body;
 
              produto = await Produto.create({
              nome,
              descricao,
-             tamanho,
              preco
             });
 

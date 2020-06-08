@@ -7,9 +7,6 @@ const ProdutoSchema = new mongoose.Schema({
     descricao:{
         type: String,
     },
-    tamanho:{
-        type: String,
-    },
     preco:{
         type: String,
     },

@@ -11,6 +11,12 @@ const VendaSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    tamanho:{
+        type: Number,
+    },
+    quantidade:{
+        type: Number,
+    },
     //fkeys
     user: {
         type: mongoose.Schema.Types.ObjectId,

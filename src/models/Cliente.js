@@ -17,7 +17,6 @@ const ClienteSchema = new mongoose.Schema ({
     email:{
         type: String,
         required: true,
-        lowercase: true,
         unique: true,
     },
     celular:{
