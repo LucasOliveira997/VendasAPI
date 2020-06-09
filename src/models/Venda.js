@@ -17,6 +17,7 @@ const VendaSchema = new mongoose.Schema({
     quantidade:{
         type: Number,
     },
+    produto: [String],
     //fkeys
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -26,10 +27,7 @@ const VendaSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Cliente',
     },
-    produto: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Produto',
-    },
+    
 });
 
 

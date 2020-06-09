@@ -3,19 +3,10 @@ const Cliente = require('../models/Cliente');
 module.exports = {
 
     async index(req, res) {
-        const { cliente_id } = req.params;
-        const clientes = await cliente.find(cliente_id)
-
-        return res.json(clientes);
-
-    },
-
-    async show(req, res) {
-        const { cliente_id } = req.params;
-        const cliente = await cliente.findById(cliente_id);
-
+        const cliente = await Cliente.find();
         return res.json(cliente);
-    },
+      },
+ 
 
     async delete(req, res) {
         const { cliente_id } = req.params;
