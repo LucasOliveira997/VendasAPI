@@ -7,12 +7,6 @@ module.exports = {
         return res.json(produto);
       },
 
-    async show(req, res) {
-        const { produto_id } = req.params;
-        const produto = await produto.findById(produto_id);
-
-        return res.json(produto);
-    },
 
     async delete(req, res) {
         const { produto_id } = req.params;

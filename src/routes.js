@@ -32,7 +32,6 @@ routes.delete('/clientes', ClienteController.delete);
 //produtos
 routes.post('/produtos',  ProdutoController.store);
 routes.get('/produtos', ProdutoController.index);
-routes.get('/produtos', ProdutoController.show);
 routes.delete('/produtos', ProdutoController.delete);
 
 module.exports = routes;
