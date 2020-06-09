@@ -28,24 +28,8 @@ module.exports = {
 
 
     async store(req, res) {
-        const{ valor, formaPagamento, createdAt, tamanho, quantidade, produto } = req.body;
-        const { user_id } = req.headers;
-        const { cliente_id } = req.headers;
-        
+        const{ valor, formaPagamento, createdAt, tamanho, quantidade, produto, user_id, cliente_id } = req.body;
            
-
-        const user = await User.findById(user_id);
-        const cliente = await Cliente.findById(cliente_id);
-        
-    
-        if(!user){
-            return res.status(400).json({ error: 'Usuário não encontrado' });
-        }
-        if(!cliente){
-            return res.status(400).json({ error: 'Cliente não encontrado' });
-        }
-        
-
         const venda = await Venda.create({
             user: user_id,
             cliente: cliente_id,
