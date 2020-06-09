@@ -15,7 +15,6 @@ routes.post('/authenticate', AuthController.store);
 //Users
 routes.post('/users',  UserController.store);
 routes.get('/users', UserController.index);
-routes.get('/users/:user_id', UserController.show);
 routes.delete('/users/:user_id', UserController.delete);
 
 //Vendas

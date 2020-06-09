@@ -3,23 +3,10 @@ const User = require('../models/User');
 module.exports = {
 
     async index(req, res) {
-        const { user_id } = req.params;
-        const users = await user.find(user_id)
-
-        users.senha = undefined;
-
-        return res.json(users);
-
-    },
-
-    async show(req, res) {
-        const { user_id } = req.params;
-        const user = await user.findById(user_id);
-
-        user.senha = undefined;
-
+        const user = await User.find();
         return res.json(user);
-    },
+      },
+
 
     async delete(req, res) {
         const { user_id } = req.params;
