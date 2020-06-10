@@ -18,14 +18,14 @@ const VendaSchema = new mongoose.Schema({
         type: Number,
     },
     produto: [String],
-    //fkeys
+    
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
+        
     },
     cliente: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cliente',
+        type: String,
+        
     },
     
 });

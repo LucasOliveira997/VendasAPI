@@ -40,9 +40,10 @@ module.exports = {
         const { nome, celular, cpf, email, login, gestor, senha } = req.body;
 
 
-        let user = await User.findOne({ email });
+        let userEmail = await User.findOne({ email });
+        let userCpf = await User.findOne({ cpf });
 
-        if (!user){
+        if (!userEmail && !userCpf){
             user = await User.create({
                 nome,
                 celular,
@@ -55,6 +56,12 @@ module.exports = {
             return res.json(user);
 
         }     
-        return res.json({ erro: 'Este e-mail já está em uso'});
+        if (userCpf){
+            return res.status(400).send({ erro: 'Este cpf já está cadastrado'});
+        } 
+        
+        if (userEmail){
+            return res.status(401).send({ erro: 'Este e-mail já está cadastrado'});
+        }
     }
 };

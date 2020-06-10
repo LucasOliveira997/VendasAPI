@@ -20,11 +20,11 @@ const ClienteSchema = new mongoose.Schema ({
         unique: true,
     },
     celular:{
-        Type: String,
+        type: String,
         
     },
     endereco:{
-        Type: String,
+        type: String,
         
     },
 

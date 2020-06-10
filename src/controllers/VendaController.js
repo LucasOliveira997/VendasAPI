@@ -28,11 +28,17 @@ module.exports = {
 
 
     async store(req, res) {
-        const{ valor, formaPagamento, createdAt, tamanho, quantidade, produto, user_id, cliente_id } = req.body;
-           
-        const venda = await Venda.create({
-            user: user_id,
-            cliente: cliente_id,
+        const{ valor, formaPagamento, createdAt, tamanho, quantidade, produto, user, cliente } = req.body;
+          
+        
+        let userCpf = await User.findOne({ cpf: user });
+        let clienteCpf = await Cliente.findOne({ cpf: cliente });
+
+        if(userCpf && clienteCpf){
+        
+        venda = await Venda.create({
+            user,
+            cliente,
             valor,
             formaPagamento,
             createdAt,
@@ -40,7 +46,14 @@ module.exports = {
             quantidade,
             produto: produto.split(',').map(produto => produto.trim()),
         })
-
-        return res.json(venda)
+        return res.json(venda);
+    }
+    if(!userCpf){
+        return res.status(400).send({ erro: 'Vendedor não encontrado'});
+    }
+    if(!clienteCpf){
+        return res.status(401).send({ erro: 'Cliente não encontrado'});
+    }
+        
     }
 };
