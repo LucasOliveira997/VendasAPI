@@ -66,7 +66,7 @@ module.exports = {
         }
         
         if (userLogin){
-            return res.status(400).send({ erro: 'Este login já está em uso'});
+            return res.status(402).send({ erro: 'Este login já está em uso'});
         }
     }
 };
