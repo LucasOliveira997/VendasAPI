@@ -5,7 +5,7 @@ const VendaSchema = new mongoose.Schema({
         type: String,
     },
     formaPagamento:{
-        type: String,
+        type: Number,
     },
     createdAt:{
         type: Date,
