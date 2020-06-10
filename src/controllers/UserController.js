@@ -42,8 +42,9 @@ module.exports = {
 
         let userEmail = await User.findOne({ email });
         let userCpf = await User.findOne({ cpf });
+        let userLogin = await User.findOne({ login });
 
-        if (!userEmail && !userCpf){
+        if (!userEmail && !userCpf && userLogin){
             user = await User.create({
                 nome,
                 celular,
@@ -62,6 +63,10 @@ module.exports = {
         
         if (userEmail){
             return res.status(401).send({ erro: 'Este e-mail já está cadastrado'});
+        }
+        
+        if (userLogin){
+            return res.status(402).send({ erro: 'Este login já está em uso'});
         }
     }
 };
