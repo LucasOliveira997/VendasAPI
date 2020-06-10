@@ -44,7 +44,7 @@ module.exports = {
         let userCpf = await User.findOne({ cpf });
         let userLogin = await User.findOne({ login });
 
-        if (!userEmail && !userCpf && userLogin){
+        if (!userEmail && !userCpf && !userLogin){
             user = await User.create({
                 nome,
                 celular,
@@ -66,7 +66,7 @@ module.exports = {
         }
         
         if (userLogin){
-            return res.status(402).send({ erro: 'Este login já está em uso'});
+            return res.status(400).send({ erro: 'Este login já está em uso'});
         }
     }
 };
