@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    gestor: Number,
+    gestor: Boolean,
     
     senha: {
         type: String,

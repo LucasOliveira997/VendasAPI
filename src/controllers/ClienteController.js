@@ -39,7 +39,7 @@ module.exports = {
         const { nome, dataNascimento, cpf, email, celular, endereco } = req.body;
 
 
-        let cliente = await Cliente.findOne({ email });
+        let cliente = await Cliente.findOne({ cpf });
 
         if (!cliente){
              cliente = await Cliente.create({
@@ -53,6 +53,6 @@ module.exports = {
             return res.json(cliente);
 
         }     
-        return res.json({ erro: 'Este e-mail já está cadastrado'});
+        return res.json({ erro: 'Este cpf já está cadastrado'});
     }
 };
