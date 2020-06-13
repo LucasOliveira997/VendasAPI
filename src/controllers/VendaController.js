@@ -6,17 +6,13 @@ const Venda = require('../models/Venda');
 module.exports = {
 
     async index(req, res) {
-        const venda = await Venda.find();
+        const { produto } = req.query;
+
+        const venda = await Venda.find({ produto: produto });
+
+        
         return res.json(venda);
       },
-
-    async show( req, res ){
-        const { user_id } = req.headers;
-
-        const vendas = await Venda.find({ user: user_id });
-
-        return res.json(vendas);
-    },
 
     async delete(req, res) {
         const { venda_id } = req.params;

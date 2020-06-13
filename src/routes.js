@@ -19,7 +19,6 @@ routes.delete('/users/:user_id', UserController.delete);
 
 //Vendas
 routes.post('/vendas',  VendaController.store);
-routes.get('/vendas',  VendaController.show);
 routes.get('/vendas', VendaController.index);
 routes.delete('/vendas', VendaController.delete);
 

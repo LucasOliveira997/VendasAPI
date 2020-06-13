@@ -12,10 +12,7 @@ module.exports = {
         if (!await bcrypt.compare(senha, user.senha))
             return res.status(400).send({ error: 'Login e/ou senha inválido(s)' });
 
-
-        user.password = undefined;
-
-        
+        user.password = undefined;        
 
         return res.send({ user });
     }
