@@ -11,7 +11,8 @@ module.exports = {
         const venda = await Venda.find({ produto: produto });
 
         
-        return res.json(venda);
+        return res.json(venda.length);
+        
       },
 
     async delete(req, res) {
