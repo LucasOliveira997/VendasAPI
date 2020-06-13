@@ -3,8 +3,11 @@ const Cliente = require('../models/Cliente');
 module.exports = {
 
     async index(req, res) {
+
         const cliente = await Cliente.find();
+
         return res.json(cliente);
+        
       },
  
 
