@@ -6,10 +6,10 @@ module.exports = {
     async index(req, res) {
         const { cpf } = req.query;
 
-        const cliente = await Cliente.find({ cpf : cpf });
+        const cliente = await Cliente.findOne({ cpf : cpf });
 
         
-        return res.json(cliente);
+        return res.send({ cliente });
         
       },
  
