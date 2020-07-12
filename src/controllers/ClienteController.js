@@ -2,15 +2,17 @@ const Cliente = require('../models/Cliente');
 
 module.exports = {
 
+
     async index(req, res) {
+        const { cpf } = req.query;
 
-        const cliente = await Cliente.find();
+        const cliente = await Cliente.find({ cpf : cpf });
 
+        
         return res.json(cliente);
         
       },
  
-
     async delete(req, res) {
         const { cliente_id } = req.params;
         const cliente = await cliente.findByIdAndDelete(cliente_id);
