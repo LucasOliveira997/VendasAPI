@@ -6,16 +6,14 @@ const Venda = require('../models/Venda');
 module.exports = {
 
     async index(req, res) {
+        const { produto } = req.query;
 
-        const marilene = await Venda.find({ produto: "Marilene" });
-        const negoney = await Venda.find({ produto: "Nego Ney" });
-        const faustao = await Venda.find({ produto: "Faustão" });
-        const irineu = await Venda.find({ produto: "Irineu" });
+        const venda = await Venda.find({ produto: produto });
 
-
-        return res.json({ "Marilene": marilene.length, "Nego Ney": negoney.length, "Faustão": faustao.length, "Irineu": irineu.length });
-
-    },
+        
+        return res.json(venda.length);
+        
+      },
 
     async delete(req, res) {
         const { venda_id } = req.params;

@@ -5,12 +5,16 @@ const UserController = require('./controllers/UserController');
 const VendaController = require('./controllers/VendaController');
 const ClienteController = require('./controllers/ClienteController');
 const ProdutoController = require('./controllers/ProdutoController');
+const KpiController = require('./controllers/KpiController');
 
 
 const routes = express.Router();
 
 //Authenticate
 routes.post('/authenticate', AuthController.store);
+
+//KPI
+routes.get('/kpi', KpiController.index);
 
 //Users
 routes.post('/users', UserController.store);
