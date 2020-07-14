@@ -12,6 +12,7 @@ module.exports = {
         const faustao = await Venda.find({ produto: "Faustão" });
         const irineu = await Venda.find({ produto: "Irineu" });
 
+
         return res.json({ "Marilene": marilene.length, "Nego Ney": negoney.length, "Faustão": faustao.length, "Irineu": irineu.length });
 
     },
